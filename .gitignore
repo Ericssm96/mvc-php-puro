@@ -1,0 +1,25 @@
+﻿# Mac
+**/.DS_STORE
+
+# Windows
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+nbproject/
+
+# Adicionais
+node_modules/
+vendor/
+/tailwind.css
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+**/*.log
+
+# Dist
+/dist
