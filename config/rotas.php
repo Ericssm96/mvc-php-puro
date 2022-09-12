@@ -7,6 +7,7 @@ use Alura\Cursos\Controller\FormularioLogin;
 use Alura\Cursos\Controller\ListarCursos;
 use Alura\Cursos\Controller\Persistencia;
 use Alura\Cursos\Controller\RealizarLogin;
+use Alura\Cursos\Controller\RealizarLogout;
 
 $rotas = [
     '/lista-cursos' => ListarCursos::class,
@@ -16,6 +17,7 @@ $rotas = [
     '/alterar-curso' => FormularioEdicao::class,
     '/login' => FormularioLogin::class,
     '/realiza-login' => RealizarLogin::class,
+    '/logout' => RealizarLogout::class,
 ];
 
 return $rotas;
