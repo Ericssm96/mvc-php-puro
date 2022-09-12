@@ -28,14 +28,13 @@ class Persistencia implements InterfaceControladorRequisicao
         if(!is_null($id) && $id !== false){
             $curso = $this->entityManager->find(Curso::class, $id);
             $curso->setDescricao($descricao);
-            $this->entityManager->flush($curso);
         } else {
             $curso = new Curso();
             $curso->setDescricao($descricao);
             $this->entityManager->persist($curso);
-            $this->entityManager->flush();
         }
 
+        $this->entityManager->flush();
 
 
         echo "Curso $descricao salvo com sucesso.";

@@ -8,7 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 
 
-class FormularioEdicao implements InterfaceControladorRequisicao
+class FormularioEdicao extends ControllerHTML implements InterfaceControladorRequisicao
 {
     private EntityRepository $repositorioDeCursos;
 
@@ -26,13 +26,16 @@ class FormularioEdicao implements InterfaceControladorRequisicao
             FILTER_VALIDATE_INT
         );
 
-        if(is_null($id) || $id === false) {
+        if (is_null($id) || $id === false) {
             header("Location:  /lista-cursos");
             return;
         }
 
         $curso = $this->repositorioDeCursos->find($id);
-        $titulo = "Alterar Curso:" .  $curso->getDescricao();
-        require_once __DIR__ . "/../../views/cursos/formulario.php";
+
+        echo $this->renderizaHTML("/cursos/formulario.php", [
+            "curso" => $curso,
+            "titulo" => "Alterar Curso:" . $curso->getDescricao()
+        ]);
     }
 }
