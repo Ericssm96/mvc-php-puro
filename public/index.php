@@ -15,7 +15,7 @@ session_start();
 
 if (!isset($_SESSION['logado']) && stripos($caminho, "login") === false){
     header('Location: /login');
-    return;
+    exit();
 }
 
 $classeControladora = $rotas[$caminho];
